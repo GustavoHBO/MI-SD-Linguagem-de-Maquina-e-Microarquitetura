@@ -63,9 +63,4 @@
 
 !*.tcl
 
-### Assembler ###
-*.[sS]
-*.bc
-
-
 # End of https://www.gitignore.io/api/assembler,alteraquartusii
