@@ -1,0 +1,22 @@
+# Teste de instruções básicas em Assembly
+
+addi r9, r9, 100 # Salva o valor 100 no registrador r9
+addi r10, r10, 0 # Salva o valor 100 no registrador r10
+
+# Soma de dois valores
+_soma:
+	add r11, r9, r10 # Soma os valores de r9 e r10 e salva o resultado em r11
+
+# Laço de repetição
+_rep:
+	bne r9, r10, _inc # Verifica se os valores de r9 e r10 são não são iguais e chama a instrução _inc
+	beq r9, r10, _zerar # Verifica se os valores de r9 e r10 são iguais e chama a instrução _zerar
+	
+#Incremento
+_inc:
+	addi r10, r10, 1 # Incrementa 1 ao valor de r10
+	call _rep # Chama a instrução _rep
+	
+# Zera um registrador
+_zerar:
+	xor r9, r9, r9 # Realiza a operação XOR entre o valor de apenas um registrador, zerando-o
