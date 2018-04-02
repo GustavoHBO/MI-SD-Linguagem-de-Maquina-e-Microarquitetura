@@ -1,0 +1,21 @@
+
+movia r9, 0xBAB39959 #Mensagem: ?10111010101100111001100101011001?
+movhi r10, 0b1011000000000000 #Polinômio de 3-CRC
+
+movi r2, 31 #Quantidade de vezes que caminhará a mensagem
+
+crc:
+	blt r9, r0, divisao #Verifica se a mensagem é negativa. Se for, chama a operação
+	
+verificar:
+	beq r2, r0, fim
+	roli r9, r9, 1 #Caminha 1 bit para a esquerda
+	subi r2, r2, 1 #Remove 1 da quantidade de vezes
+	call crc
+	
+	
+divisao:
+	xor r9, r9, r10
+	call verificar
+	
+fim:

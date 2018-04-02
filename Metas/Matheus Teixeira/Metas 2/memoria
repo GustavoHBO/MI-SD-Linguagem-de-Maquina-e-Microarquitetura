@@ -1,0 +1,4 @@
+main:
+	addi r10, r0, 10 #Adiciona o valor 42 em r10
+	
+	stw r10, 0x0000810(r0) #Armazena o valor 10 na posição de memoria 0x00000810
