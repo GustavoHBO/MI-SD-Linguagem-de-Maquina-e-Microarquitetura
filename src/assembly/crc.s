@@ -14,12 +14,13 @@
 # Declaração dos valores a serem utilizados
 data:
 	# Definindo a mensagem de 32 bits no registrador r10
-	movia r2, 0b1111111111001111 # Define os 16 bits menos significativos da mensagem em um registrador
-	movhi r3, 0b0101100100101101 # Define os 16 bits mais significativos da mensagem em outro registrador
-	add r10, r2, r3 # Junta os dois valores em apenas um registrador
+	#movia r2, 0b1111111111001111 # Define os 16 bits menos significativos da mensagem em um registrador
+	#movhi r3, 0b0101100100101101 # Define os 16 bits mais significativos da mensagem em outro registrador
+	#add r10, r2, r3 # Junta os dois valores em apenas um registrador
+	movia r10, 0x592dffcf
 	
 	# Definindo o polinômio, colocando-o no registador r11
-	movia r11, 0xCBF43926
+	movia r11, 0x04C11DB7
 	
 	# Utilizado para identificar se o primeiro bit é 1
 	movhi r12, 0b1000000000000000 
@@ -32,16 +33,16 @@ __main:
 
 __calcularCRC32:
 	
+	beq r0, r13, __fim
 	bltu r10, r12, __deslocarBit
+	slli r10, r10, 1 # Faz o carry de apenas um bit
+	subi r13, r13, 1 # Subtrai em 1 a quantidade de bits a serem calculados
 	xor r10, r10, r11
 	call __calcularCRC32
-	call __deslocarBit
 	
 __deslocarBit:
-
-	#bltu r0, r13, __fim
-	slli r10, r10, 1 # Faz o carry
+	slli r10, r10, 1 # Faz o carry de apenas um bit
 	subi r13, r13, 1 # Subtrai em 1 a quantidade de bits a serem calculados
-	bltu r0, r13, __calcularCRC32
+	bgtu r13, r0, __calcularCRC32
 	
 __fim:
