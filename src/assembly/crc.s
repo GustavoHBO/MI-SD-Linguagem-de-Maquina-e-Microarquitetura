@@ -51,13 +51,13 @@ __main:
 
 __calcularCRC32:
 	
-	bgeu r0, r20, __fim # Verifica se ainda existe mensagem a ser calculada. Caso r0 seja maior que r20.
+	bgeu r0, r20, __exibirCodigo # Verifica se ainda existe mensagem a ser calculada. Caso r0 seja maior que r20.
 	call __prepararMensagem # Chama o procedimento para deslocar os bit's se necessário.
 	xor r16, r16, r18 # Executa o XOR da mensagem com o polinômio.
 	br __calcularCRC32 # Chama novamente o procedimento de calcular CRC32.
 	
 __prepararMensagem:
-	bgt r0, r20, __fim # Verifica se ainda existe mensagem a ser calculada. Caso r0 seja maior que r20.
+	bgt r0, r20, __exibirCodigo # Verifica se ainda existe mensagem a ser calculada. Caso r0 seja maior que r20.
 	bgtu r19, r16, __deslocarBit # Verifica se o bit mais significativo da mensagem é 0. Caso r19 seja maior ou igual a r16.
 	stw r31, 0(r8)
 	addi r8, r8, 4 # Incrementa o ponteiro para o topo da pilha.
@@ -102,5 +102,21 @@ __carregarMensagem:
 __quantidadeBitLer:
 	mov r22, r20
 	br __deslocarBuffer # Vai para o conjunto de instruções de deslocar bit's do buffer. 
+	
+__exibirCodigo:
+	mov r4, r16 # Copia o valor para r4.
+	addi r5, r0, 0x840
+	addi r6, r0, 0x10
+	addi r7, r0, 0x810
+	loop1:
+		ldw r8, 0(r5)
+		bgtu r8, r0, loop2
+		br loop1
+	loop2:
+		ldw r8, 0(r5)
+		bgtu r8, r0, loop2
+		roli r4, r4, 0x4
+		stw r4, 0(r7)
+		br loop1
 
 __fim:
