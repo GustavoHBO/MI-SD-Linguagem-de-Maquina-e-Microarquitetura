@@ -8,14 +8,14 @@ leds[5] <= processor:inst.leds_export[5]
 leds[6] <= processor:inst.leds_export[6]
 leds[7] <= processor:inst.leds_export[7]
 pin_name1 => processor:inst.clk_clk
-switch_input[0] => processor:inst.switches_export[0]
-switch_input[1] => processor:inst.switches_export[1]
-switch_input[2] => processor:inst.switches_export[2]
-switch_input[3] => processor:inst.switches_export[3]
-switch_input[4] => processor:inst.switches_export[4]
-switch_input[5] => processor:inst.switches_export[5]
-switch_input[6] => processor:inst.switches_export[6]
-switch_input[7] => processor:inst.switches_export[7]
+switch_input[0] => inst2[0].IN0
+switch_input[1] => inst2[1].IN0
+switch_input[2] => inst2[2].IN0
+switch_input[3] => inst2[3].IN0
+switch_input[4] => inst2[4].IN0
+switch_input[5] => inst2[5].IN0
+switch_input[6] => inst2[6].IN0
+switch_input[7] => inst2[7].IN0
 
 
 |projetoNios|processor:inst

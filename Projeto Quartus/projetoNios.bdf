@@ -37,7 +37,7 @@ applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 216 248 400 264)
+	(rect 32 248 216 264)
 	(text "INPUT" (rect 141 0 169 10)(font "Arial" (font_size 6)))
 	(text "switch_input [7..0]" (rect 5 0 94 12)(font "Arial" ))
 	(pt 184 8)
@@ -143,6 +143,31 @@ applicable agreement for further details.
 		(line (pt 0 0)(pt 0 224))
 	)
 )
+(symbol
+	(rect 288 240 336 272)
+	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
+	(text "inst2" (rect 3 21 26 33)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 13 16))
+	)
+	(port
+		(pt 48 16)
+		(output)
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(line (pt 39 16)(pt 48 16))
+	)
+	(drawing
+		(line (pt 13 25)(pt 13 7))
+		(line (pt 13 7)(pt 31 16))
+		(line (pt 13 25)(pt 31 16))
+		(circle (rect 31 12 39 20))
+	)
+)
 (connector
 	(pt 120 216)
 	(pt 120 184)
@@ -150,4 +175,14 @@ applicable agreement for further details.
 (connector
 	(pt 400 216)
 	(pt 120 216)
+)
+(connector
+	(pt 288 256)
+	(pt 216 256)
+	(bus)
+)
+(connector
+	(pt 400 256)
+	(pt 336 256)
+	(bus)
 )

@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="b1407b9b1fb84bbb6f49"/>
+    <hash md5_digest_80b="ce0ae6cafae05216faac"/>
   </project>
   <file_info>
     <file device="EP4CE10F17C8" path="projetoNios.sof" usercode="0xFFFFFFFF"/>
@@ -144,7 +144,7 @@
   <sld_infos>
     <sld_info hpath="processor:inst" name="inst">
       <assignment_values>
-        <assignment_value text="QSYS_NAME processor HAS_SOPCINFO 1 GENERATION_ID 1524618920"/>
+        <assignment_value text="QSYS_NAME processor HAS_SOPCINFO 1 GENERATION_ID 1524709297"/>
       </assignment_values>
       <parameters/>
     </sld_info>
