@@ -66,7 +66,7 @@ __calcularCRC32:
 	
 	# Prepara a mensagem para que seja feita a operação XOR da mensagem com o polinômio.
 __prepararMensagem:
-	bgt r0, r20, __exibirCodigo # Verifica se ainda existe mensagem a ser calculada. Caso r0 seja maior que r20.
+	bge r0, r20, __exibirCodigo # Verifica se ainda existe mensagem a ser calculada. Caso r0 seja maior que r20.
 	bgtu r19, r16, __deslocarBit # Verifica se o bit mais significativo da mensagem é 0. Caso r19 seja maior ou igual a r16.
 	stw r31, 0(r8)
 	addi r8, r8, 4 # Incrementa o ponteiro para o topo da pilha.
